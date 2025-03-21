@@ -4,9 +4,14 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%; 
+  margin: 0; 
+}
+
 html {
   block-size: 100%;
-  overflow-x: hidden;
 }
 
 h1,
@@ -30,12 +35,12 @@ ol {
 
 .page {
   display: flex;
+  position: relative;
   inline-size: 1200px;
   block-size: 100%;
-  height: 534px;
-  margin: 133px 30px;
-  align-content: center;
+  align-items: center;
   justify-content: center;
+  margin: auto;
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
@@ -47,7 +52,9 @@ ol {
   grid-template-areas: 'main list';
   grid-template-columns: 711px 399px;
   column-gap: 30px;
-  align-items: end;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .result {
@@ -84,7 +91,7 @@ ol {
 
 /* заголовки блоки навигации */
 .search-form__fieldset-title {
-  font-family: 'Fira Sans Condensed';
+  font-family: 'Fira Sans Condensed', Arial, sans-serif;
   font-weight: 400;
   font-size: 18px;
   color: rgba(255, 255, 255);
@@ -93,6 +100,7 @@ ol {
 .search-form__label {
   display: flex;
   margin-top: 5px;
+  align-items: center;
   width: fit-content; /* ширина элемента = ширина его содержимого, но превышать ширину родительского контейнера */
 }
 
@@ -197,54 +205,53 @@ ol {
 .search-form__label-text {
   margin-left: 5px;
   justify-content: center;
-  font-family: Fira Sans Condensed;
+  font-family: Fira Sans Condensed, Arial, sans-serif;
   font-weight: 400;
   font-size: 18px;
 }
 
-.search-form__label-text:hover {
+.search-form__label:hover .search-form__label-text {
   text-decoration: underline;
   text-underline-offset: 3px;
   cursor: pointer;
 }
 
 .button {
- outline: none;
- border: 1px solid #fff;
- text-align: center;
- background-color: transparent;
- color: #fff;
- font-family: Fira Sans Condensed;
- font-weight: 700;
- font-size: 18px;
- line-height: 100%;
+height: 34px;
+cursor: pointer;
+border: 1px solid #fff;
+outline: none;
+background-color: transparent;
+color: #fff;
+font-family: Fira Sans Condensed, Arial, sans-serif;
+font-weight: 700;
+font-size: 18px;
+line-height: 100%;
+text-align: center;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.button:active {
+  background-color: rgba(84, 80, 80, 1);
+  text-decoration: none;
+}
+
+.button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
 }
 
 /* кнопка Найти */
 .search-form__submit-button {
   width: 194px;
-  height: 34px;
-}
-
-.search-form__submit-button:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.search-form__submit-button:active {
-  background-color: rgba(255, 255, 255, 0.5);
-  text-decoration: none;
-}
-
-.search-form__submit-button:focus-visible {
-  outline: 1px solid #fff;
-  outline-offset: 1px;
 }
 
 /* кнопка Показать еще */
 .more-button {
   width: 100%;
-  height: 34px;
   margin-top: 34px;
 }
 
@@ -256,7 +263,7 @@ ol {
 }
 
 .title {
-  font-family: Oswald;
+  font-family: Oswald, Arial, sans-serif;
   font-weight: 700;
   font-size: 75px;
   line-height: 95%;
@@ -324,6 +331,7 @@ ol {
   flex-grow: 1;
   overflow: hidden; /* скрыть текст за пределами */
   max-width: 100%;
+  
 }
 
 /* заголовок у карточки */
@@ -332,7 +340,7 @@ ol {
   max-width: 196px;
   white-space: nowrap; /* не переносить */
   text-overflow: ellipsis; /* многоточие */
-  font-family: Oswald;
+  font-family: Oswald, Arial, sans-serif;
   font-weight: 700;
   font-size: 30px;
   text-transform: uppercase;
@@ -345,7 +353,7 @@ ol {
   -webkit-line-clamp: 4; /* максимум 4 строки */
   -webkit-box-orient: vertical; 
   text-overflow: ellipsis; /* многоточие */
-  font-family: Fira Sans Condensed;
+  font-family: Fira Sans Condensed, Arial, sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 16.2px;
@@ -355,22 +363,11 @@ ol {
 .content__video-card-thumbnail {
   width: 194px;
   height: 103px;
+  max-width: 193px;
   object-fit: cover;
   object-position: center;
-  max-width: 100%;
-}
-
-.preloader-video {
-  position: fixed;
-  inset: 0;
-  background: rgba(84, 80, 80, 0.8); 
-}
-
-
-.preloader-list {
-  position: fixed;
-  inset: 0;
-  background: rgba(84, 80, 80, 0.8); 
+  flex-shrink: 0; /* запрет сжатия изображения */
+  text-overflow: ellipsis;
 }
 
 /* Кастомный скроллбар */
