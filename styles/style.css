@@ -59,8 +59,7 @@ ol {
 
 .result {
   grid-area: main;
-  margin-top: 78px;
-  margin-bottom: 70px;
+  align-self: end;
   justify-self: end;
 }
 
@@ -204,16 +203,9 @@ ol {
 /* текст около чекбоксов */
 .search-form__label-text {
   margin-left: 5px;
-  justify-content: center;
   font-family: Fira Sans Condensed, Arial, sans-serif;
   font-weight: 400;
   font-size: 18px;
-}
-
-.search-form__label:hover .search-form__label-text {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  cursor: pointer;
 }
 
 .button {
